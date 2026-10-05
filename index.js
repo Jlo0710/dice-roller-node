@@ -41,15 +41,12 @@ app.get('/2plus2', (request, response) => {
 	response.send('4')
 })
 
-// Add x and y which are both passed in on the URL. 
-app.get('/add-two-integers', (request, response) => {
-	console.log('Calling "/add-two-integers" on the Node.js server.')
-	var inputs = url.parse(request.url, true).query
-	let x = parseInt(inputs.x)
-	let y = parseInt(inputs.y)
-	let sum = x + y
+// Roll a six-sided die and return a number between 1 and 6.
+app.get('/roll-die', (request, response) => {
+	console.log('Calling "/roll-die" on the Node.js server.')
+	const roll = Math.floor(Math.random() * 6) + 1
 	response.type('text/plain')
-	response.send(sum.toString())
+	response.send(roll.toString())
 })
 
 // Template for calculating BMI using height in feet/inches and weight in pounds.
